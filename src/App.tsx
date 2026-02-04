@@ -12,7 +12,10 @@ function App() {
       <Header />
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-[400px_1fr] overflow-hidden">
         <section className="h-full overflow-y-auto border-r border-gray-200">
-          <BackgroundGrid onSelect={setSelectedBackground} />
+          <BackgroundGrid
+            onSelect={setSelectedBackground}
+            selectedBackground={selectedBackground}
+          />
         </section>
         <section className="h-full overflow-hidden bg-gray-50 relative">
           <PreviewArea background={selectedBackground} />
