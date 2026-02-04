@@ -1,73 +1,79 @@
-# React + TypeScript + Vite
+# Background Clash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> A modern, minimalist web app to discover and preview CSS backgrounds instantly.
 
-Currently, two official plugins are available:
+**Background Clash** is a fast and visual tool designed for developers and designers. Browse a curated collection of beautiful gradients and backgrounds, preview them in a real-time layout, and copy the CSS code with a single click. No login, no backend, just pure utility.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+![App Preview](https://placehold.co/800x450?text=App+Preview+Placeholder)
 
-## React Compiler
+## ✨ Features
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Instant Preview**: Click any background to see it applied immediately to the layout.
+- **Visual Feedback**: smooth transitions and clear selection states.
+- **One-Click Copy**: Copy the exact CSS code to your clipboard instantly.
+- **Zero Friction**: No account required, works directly in the browser.
+- **Responsive Design**: optimized for desktop and mobile viewing.
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Built with a focus on performance and developer experience:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- **[Vite](https://vitejs.dev/)**: Next Generation Frontend Tooling
+- **[React](https://react.dev/)**: Library for web and native user interfaces
+- **[TypeScript](https://www.typescriptlang.org/)**: JavaScript with syntax for types
+- **[Tailwind CSS](https://tailwindcss.com/)**: Utility-first CSS framework
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+## 🚀 Getting Started
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Follow these steps to run the project locally.
+
+### Prerequisites
+
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository**
+   ```bash
+   git clone https://github.com/tu-usuario/background-clash.git
+   cd background-clash
+   ```
+
+2. **Install dependencies**
+   ```bash
+   npm install
+   ```
+
+3. **Start the development server**
+   ```bash
+   npm run dev
+   ```
+
+4. **Open in browser**
+   Visit `http://localhost:5173` to view the app.
+
+## 📂 Project Structure
+
+```text
+src/
+├── components/       # Reusable UI components
+│   ├── BackgroundCard.tsx
+│   ├── BackgroundGrid.tsx
+│   ├── CopyButton.tsx
+│   ├── Header.tsx
+│   └── PreviewArea.tsx
+├── data/            # Static data (backgrounds list)
+│   └── backgrounds.ts
+├── styles/          # Global styles
+│   └── globals.css
+├── App.tsx          # Main layout and state management
+└── main.tsx         # Entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 📦 Status
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+**Current Status**: MVP (Minimum Viable Product)
+- ✅ Functional Grid & Preview
+- ✅ Copy to Clipboard
+- ✅ Responsive UI
