@@ -1,8 +1,13 @@
+import { backgrounds } from "../data/backgrounds";
+import { BackgroundCard } from "./BackgroundCard";
+
 export function BackgroundGrid() {
     return (
-        <div className="h-full w-full bg-gray-50 flex items-center justify-center p-4">
-            <div className="text-gray-400 text-sm font-medium">
-                Grid de fondos (Placeholder)
+        <div className="h-full w-full bg-gray-50 p-6 overflow-y-auto">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-2 xl:grid-cols-3">
+                {backgrounds.map((bg) => (
+                    <BackgroundCard key={bg.id} background={bg} />
+                ))}
             </div>
         </div>
     );
