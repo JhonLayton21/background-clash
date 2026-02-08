@@ -1,207 +1,83 @@
-import type { Background } from '../types';
+import type { CSSProperties } from "react";
 
-// Re-export type for backwards compatibility
-export type { Background };
+export interface Background {
+    id: string;
+    name: string;
+    css: string;
+    previewStyle: CSSProperties;
+}
 
 export const backgrounds: Background[] = [
-  {
-    id: "bg-soft-01",
-    name: "Soft Gradient",
-    description: "A smooth gradient perfect for minimalist websites",
-    category: "soft",
-    tags: ["gradient", "pastel", "warm", "smooth"],
-    gradientType: "linear-gradient",
-    colors: [
-      {
-        value: "#f5d0fe",
-        hex: "#f5d0fe",
-        rgb: { r: 245, g: 208, b: 254 },
-        hsl: { h: 292, s: 100, l: 81 },
-        label: "Pink Light",
-        position: 0,
-      },
-      {
-        value: "#bae6fd",
-        hex: "#bae6fd",
-        rgb: { r: 186, g: 230, b: 253 },
-        hsl: { h: 200, s: 97, l: 80 },
-        label: "Blue Light",
-        position: 100,
-      },
-    ],
-    baseStyle: {
-      angle: 135,
-      intensity: 100,
-      saturation: 100,
-      luminosity: 100,
-      opacity: 100,
+    {
+        id: "bg-01",
+        name: "Soft Gradient",
+        css: "background: linear-gradient(135deg, #f5d0fe, #bae6fd);",
+        previewStyle: { background: "linear-gradient(135deg, #f5d0fe, #bae6fd)" },
     },
-    currentVariant: {
-      seed: "bg-soft-01_default_0",
-      controls: {
-        angle: 135,
-        intensity: 100,
-        saturation: 100,
-        luminosity: 100,
-        opacity: 100,
-      },
-      css: "background: linear-gradient(135deg, #f5d0fe, #bae6fd);",
-      appliedAt: new Date(),
+    {
+        id: "bg-02",
+        name: "Midnight Aura",
+        css: "background: radial-gradient(circle at 50% 50%, #1a1a2e, #16213e, #0f3460);",
+        previewStyle: { background: "radial-gradient(circle at 50% 50%, #1a1a2e, #16213e, #0f3460)" },
     },
-    css: {
-      raw: "background: linear-gradient(135deg, #f5d0fe, #bae6fd);",
-      formatted: "background: linear-gradient(\n  135deg,\n  #f5d0fe,\n  #bae6fd\n);",
-      generatedAt: new Date(),
+    {
+        id: "bg-03",
+        name: "Sunny Day",
+        css: "background: linear-gradient(to right, #ff7e5f, #feb47b);",
+        previewStyle: { background: "linear-gradient(to right, #ff7e5f, #feb47b)" },
     },
-    metadata: {
-      createdAt: new Date("2026-01-15"),
-      updatedAt: new Date(),
-      author: "bgclash-team",
-      version: "1.0.0",
-      cssSupport: {
-        linear: true,
-        radial: true,
-        conic: false,
-        minBrowserVersion: "IE 10",
-      },
-      usageCount: 247,
-      rating: 4.8,
+    {
+        id: "bg-04",
+        name: "Cool Blues",
+        css: "background: linear-gradient(to top, #2193b0, #6dd5ed);",
+        previewStyle: { background: "linear-gradient(to top, #2193b0, #6dd5ed)" },
     },
-  },
-  {
-    id: "bg-dark-01",
-    name: "Midnight Aura",
-    description: "Deep space vibes with dark mystery",
-    category: "dark",
-    tags: ["dark", "gradient", "deep"],
-    gradientType: "radial-gradient",
-    colors: [
-      {
-        value: "#1a1a2e",
-        hex: "#1a1a2e",
-        rgb: { r: 26, g: 26, b: 46 },
-        hsl: { h: 240, s: 28, l: 14 },
-        label: "Navy Dark",
-        position: 0,
-      },
-      {
-        value: "#16213e",
-        hex: "#16213e",
-        rgb: { r: 22, g: 33, b: 62 },
-        hsl: { h: 220, s: 48, l: 16 },
-        label: "Dark Blue",
-        position: 50,
-      },
-      {
-        value: "#0f3460",
-        hex: "#0f3460",
-        rgb: { r: 15, g: 52, b: 96 },
-        hsl: { h: 209, s: 73, l: 22 },
-        label: "Deep Blue",
-        position: 100,
-      },
-    ],
-    baseStyle: {
-      angle: 180,
-      intensity: 100,
-      saturation: 100,
-      luminosity: 100,
-      opacity: 100,
+    {
+        id: "bg-05",
+        name: "Neon Life",
+        css: "background: linear-gradient(to right, #c33764, #1d2671);",
+        previewStyle: { background: "linear-gradient(to right, #c33764, #1d2671)" },
     },
-    currentVariant: {
-      seed: "bg-dark-01_default_0",
-      controls: {
-        angle: 180,
-        intensity: 100,
-        saturation: 100,
-        luminosity: 100,
-        opacity: 100,
-      },
-      css: "background: radial-gradient(circle at 50% 50%, #1a1a2e, #16213e, #0f3460);",
-      appliedAt: new Date(),
+    {
+        id: "bg-06",
+        name: "Purplin",
+        css: "background: linear-gradient(to right, #8360c3, #2ebf91);",
+        previewStyle: { background: "linear-gradient(to right, #8360c3, #2ebf91)" },
     },
-    css: {
-      raw: "background: radial-gradient(circle at 50% 50%, #1a1a2e, #16213e, #0f3460);",
-      formatted: "background: radial-gradient(\n  circle at 50% 50%,\n  #1a1a2e,\n  #16213e,\n  #0f3460\n);",
-      generatedAt: new Date(),
+    {
+        id: "bg-07",
+        name: "Piggy Pink",
+        css: "background: linear-gradient(to top, #ee9ca7, #ffdde1);",
+        previewStyle: { background: "linear-gradient(to top, #ee9ca7, #ffdde1)" },
     },
-    metadata: {
-      createdAt: new Date("2026-01-16"),
-      updatedAt: new Date(),
-      author: "bgclash-team",
-      version: "1.0.0",
-      cssSupport: {
-        linear: true,
-        radial: true,
-        conic: false,
-        minBrowserVersion: "IE 10",
-      },
-      usageCount: 189,
-      rating: 4.6,
+    {
+        id: "bg-08",
+        name: "Deep Space",
+        css: "background: linear-gradient(to bottom, #000428, #004e92);",
+        previewStyle: { background: "linear-gradient(to bottom, #000428, #004e92)" },
     },
-  },
-  {
-    id: "bg-neon-01",
-    name: "Neon Life",
-    description: "Vibrant neon colors for bold designs",
-    category: "neon",
-    tags: ["neon", "gradient", "vibrant"],
-    gradientType: "linear-gradient",
-    colors: [
-      {
-        value: "#c33764",
-        hex: "#c33764",
-        rgb: { r: 195, g: 55, b: 100 },
-        hsl: { h: 337, s: 56, l: 49 },
-        label: "Hot Pink",
-        position: 0,
-      },
-      {
-        value: "#1d2671",
-        hex: "#1d2671",
-        rgb: { r: 29, g: 38, b: 113 },
-        hsl: { h: 234, s: 59, l: 28 },
-        label: "Deep Purple",
-        position: 100,
-      },
-    ],
-    baseStyle: {
-      angle: 90,
-      intensity: 100,
-      saturation: 100,
-      luminosity: 100,
-      opacity: 100,
+    {
+        id: "bg-09",
+        name: "Metal Mist",
+        css: "background: linear-gradient(to bottom, #bdc3c7, #2c3e50);",
+        previewStyle: { background: "linear-gradient(to bottom, #bdc3c7, #2c3e50)" },
     },
-    currentVariant: {
-      seed: "bg-neon-01_default_0",
-      controls: {
-        angle: 90,
-        intensity: 100,
-        saturation: 100,
-        luminosity: 100,
-        opacity: 100,
-      },
-      css: "background: linear-gradient(90deg, #c33764, #1d2671);",
-      appliedAt: new Date(),
+    {
+        id: "bg-10",
+        name: "Morning Dew",
+        css: "background: linear-gradient(to right, #56ab2f, #a8e063);",
+        previewStyle: { background: "linear-gradient(to right, #56ab2f, #a8e063)" },
     },
-    css: {
-      raw: "background: linear-gradient(90deg, #c33764, #1d2671);",
-      formatted: "background: linear-gradient(\n  90deg,\n  #c33764,\n  #1d2671\n);",
-      generatedAt: new Date(),
+    {
+        id: "bg-11",
+        name: "Juicy Orange",
+        css: "background: linear-gradient(to right, #fc4a1a, #f7b733);",
+        previewStyle: { background: "linear-gradient(to right, #fc4a1a, #f7b733)" },
     },
-    metadata: {
-      createdAt: new Date("2026-01-17"),
-      updatedAt: new Date(),
-      author: "bgclash-team",
-      version: "1.0.0",
-      cssSupport: {
-        linear: true,
-        radial: true,
-        conic: false,
-        minBrowserVersion: "IE 10",
-      },
-      usageCount: 342,
-      rating: 4.9,
+    {
+        id: "bg-12",
+        name: "Rose Water",
+        css: "background: linear-gradient(to bottom, #e55d87, #5fc3e4);",
+        previewStyle: { background: "linear-gradient(to bottom, #e55d87, #5fc3e4)" },
     },
-  },
 ];

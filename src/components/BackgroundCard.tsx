@@ -25,11 +25,7 @@ export function BackgroundCard({ background, onClick, isSelected }: BackgroundCa
                     aspect-video w-full rounded-lg shadow-sm transition-all duration-300
                     ${isSelected ? "ring-2 ring-blue-500/20 shadow-md scale-[1.02]" : "ring-1 ring-black/5 group-hover:shadow-md group-hover:scale-[1.01]"}
                 `}
-                style={{
-                    background: background.currentVariant.css
-                        .replace('background: ', '')
-                        .replace(';', ''),
-                }}
+                style={background.previewStyle}
             />
             <div className="flex items-center justify-between px-1">
                 <span className={`text-xs font-medium transition-colors ${isSelected ? "text-blue-700" : "text-gray-700 group-hover:text-gray-900"}`}>
