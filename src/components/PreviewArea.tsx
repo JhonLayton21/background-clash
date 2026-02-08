@@ -7,16 +7,22 @@ interface PreviewAreaProps {
     background: Background | null;
     controls: BackgroundControls;
     angle: number;
+    seed: string;
     onControlsChange: (controls: BackgroundControls) => void;
     onAngleChange: (angle: number) => void;
+    onGenerateVariant: () => void;
+    onRandomize: () => void;
 }
 
 export function PreviewArea({ 
     background, 
     controls, 
-    angle, 
+    angle,
+    seed,
     onControlsChange, 
-    onAngleChange 
+    onAngleChange,
+    onGenerateVariant,
+    onRandomize,
 }: PreviewAreaProps) {
     // Generar CSS actualizado con los controles aplicados
     const displayedCSS = background 
@@ -69,8 +75,11 @@ export function PreviewArea({
                 <ControlsPanel
                     controls={controls}
                     angle={angle}
+                    seed={seed}
                     onControlsChange={onControlsChange}
                     onAngleChange={onAngleChange}
+                    onGenerateVariant={onGenerateVariant}
+                    onRandomize={onRandomize}
                 />
             )}
         </div>

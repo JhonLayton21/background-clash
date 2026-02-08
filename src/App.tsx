@@ -4,17 +4,44 @@ import { BackgroundGrid } from './components/BackgroundGrid'
 import { PreviewArea } from './components/PreviewArea'
 import type { Background, BackgroundControls } from './types/background'
 import { DEFAULT_CONTROLS } from './types/background'
+import { generateVariation, generateRandomSeed, generateNextVariantSeed } from './utils/generateVariations'
 
 function App() {
   const [selectedBackground, setSelectedBackground] = useState<Background | null>(null)
   const [controls, setControls] = useState<BackgroundControls>(DEFAULT_CONTROLS)
   const [angle, setAngle] = useState(135)
+  const [seed, setSeed] = useState("default-seed")
 
   const handleSelectBackground = (background: Background) => {
     setSelectedBackground(background)
     // Reset controls cuando se selecciona un nuevo background
     setControls(background.controls)
     setAngle(background.angle ?? 135)
+    setSeed(background.seed)
+  }
+
+  const handleGenerateVariant = () => {
+    if (!selectedBackground) return
+    
+    // Generar siguiente seed basado en el actual
+    const nextSeed = generateNextVariantSeed(seed)
+    const variation = generateVariation(selectedBackground, nextSeed, "variant")
+    
+    setControls(variation.controls)
+    setAngle(variation.angle)
+    setSeed(variation.seed)
+  }
+
+  const handleRandomize = () => {
+    if (!selectedBackground) return
+    
+    // Generar seed completamente aleatorio
+    const randomSeed = generateRandomSeed()
+    const variation = generateVariation(selectedBackground, randomSeed, "random")
+    
+    setControls(variation.controls)
+    setAngle(variation.angle)
+    setSeed(variation.seed)
   }
 
   return (
@@ -32,8 +59,11 @@ function App() {
             background={selectedBackground}
             controls={controls}
             angle={angle}
+            seed={seed}
             onControlsChange={setControls}
             onAngleChange={setAngle}
+            onGenerateVariant={handleGenerateVariant}
+            onRandomize={handleRandomize}
           />
         </section>
       </main>

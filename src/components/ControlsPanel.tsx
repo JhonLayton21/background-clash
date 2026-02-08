@@ -4,15 +4,21 @@ import { CONTROL_RANGES, DEFAULT_CONTROLS } from "../types/background";
 interface ControlsPanelProps {
   controls: BackgroundControls;
   angle: number;
+  seed: string;
   onControlsChange: (controls: BackgroundControls) => void;
   onAngleChange: (angle: number) => void;
+  onGenerateVariant: () => void;
+  onRandomize: () => void;
 }
 
 export function ControlsPanel({
   controls,
   angle,
+  seed,
   onControlsChange,
   onAngleChange,
+  onGenerateVariant,
+  onRandomize,
 }: ControlsPanelProps) {
   const handleAngleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = parseInt(e.target.value);
@@ -33,6 +39,25 @@ export function ControlsPanel({
 
   return (
     <div className="border-t border-gray-200 p-4 bg-white">
+      {/* Botones de variación (FASE 3) */}
+      <div className="flex gap-2 mb-3">
+        <button
+          onClick={onGenerateVariant}
+          className="flex-1 text-xs px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white transition-colors font-medium"
+          title="Genera una variación controlada del background"
+        >
+          Generate
+        </button>
+        <button
+          onClick={onRandomize}
+          className="flex-1 text-xs px-3 py-2 rounded bg-purple-500 hover:bg-purple-600 text-white transition-colors font-medium"
+          title="Genera una variación completamente aleatoria"
+        >
+          Randomize
+        </button>
+      </div>
+
+      {/* Título de controles */}
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-gray-900">Controles</h3>
         <button
@@ -42,6 +67,13 @@ export function ControlsPanel({
         >
           Reset
         </button>
+      </div>
+
+      {/* Seed info (FASE 3) */}
+      <div className="mb-3 p-2 bg-gray-50 rounded border border-gray-200">
+        <p className="text-xs text-gray-600">
+          <span className="font-medium">Seed:</span> <span className="font-mono text-gray-700 break-all">{seed.substring(0, 24)}...</span>
+        </p>
       </div>
 
       <div className="space-y-3">
