@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Header } from './components/Header'
 import { BackgroundGrid } from './components/BackgroundGrid'
 import { PreviewArea } from './components/PreviewArea'
-import type { Background, BackgroundControls } from './types/background'
+import type { Background, BackgroundControls, BackgroundCategory } from './types/background'
 import { DEFAULT_CONTROLS } from './types/background'
 import { generateVariation, generateRandomSeed, generateNextVariantSeed } from './utils/generateVariations'
 
@@ -11,10 +11,14 @@ function App() {
   const [controls, setControls] = useState<BackgroundControls>(DEFAULT_CONTROLS)
   const [angle, setAngle] = useState(135)
   const [seed, setSeed] = useState("default-seed")
+  
+  // FASE 4: Estado para filtros, búsqueda y favoritos
+  const [searchQuery, setSearchQuery] = useState("")
+  const [selectedCategory, setSelectedCategory] = useState<BackgroundCategory | null>(null)
+  const [favorites, setFavorites] = useState<Set<string>>(new Set())
 
   const handleSelectBackground = (background: Background) => {
     setSelectedBackground(background)
-    // Reset controls cuando se selecciona un nuevo background
     setControls(background.controls)
     setAngle(background.angle ?? 135)
     setSeed(background.seed)
@@ -23,7 +27,6 @@ function App() {
   const handleGenerateVariant = () => {
     if (!selectedBackground) return
     
-    // Generar siguiente seed basado en el actual
     const nextSeed = generateNextVariantSeed(seed)
     const variation = generateVariation(selectedBackground, nextSeed, "variant")
     
@@ -35,7 +38,6 @@ function App() {
   const handleRandomize = () => {
     if (!selectedBackground) return
     
-    // Generar seed completamente aleatorio
     const randomSeed = generateRandomSeed()
     const variation = generateVariation(selectedBackground, randomSeed, "random")
     
@@ -44,14 +46,33 @@ function App() {
     setSeed(variation.seed)
   }
 
+  // FASE 4: Toggle favoritos
+  const handleToggleFavorite = (id: string) => {
+    setFavorites((prev) => {
+      const newFavorites = new Set(prev)
+      if (newFavorites.has(id)) {
+        newFavorites.delete(id)
+      } else {
+        newFavorites.add(id)
+      }
+      return newFavorites
+    })
+  }
+
   return (
     <div className="flex flex-col h-screen w-full bg-white text-gray-900">
       <Header />
       <main className="flex-1 grid grid-cols-1 lg:grid-cols-[400px_1fr] overflow-hidden">
-        <section className="h-full overflow-y-auto border-r border-gray-200">
+        <section className="h-full overflow-hidden border-r border-gray-200">
           <BackgroundGrid
             onSelect={handleSelectBackground}
             selectedBackground={selectedBackground}
+            searchQuery={searchQuery}
+            onSearchChange={setSearchQuery}
+            selectedCategory={selectedCategory}
+            onCategoryChange={setSelectedCategory}
+            favorites={favorites}
+            onToggleFavorite={handleToggleFavorite}
           />
         </section>
         <section className="h-full overflow-hidden bg-gray-50 relative transition-colors duration-300">
