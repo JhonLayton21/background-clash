@@ -1,4 +1,4 @@
-import type { Background } from "../data/backgrounds";
+import type { Background } from "../types/background";
 
 interface BackgroundCardProps {
     background: Background;

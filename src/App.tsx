@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { Header } from './components/Header'
 import { BackgroundGrid } from './components/BackgroundGrid'
 import { PreviewArea } from './components/PreviewArea'
-import type { Background } from './data/backgrounds'
+import type { Background } from './types/background'
 
 function App() {
   const [selectedBackground, setSelectedBackground] = useState<Background | null>(null)

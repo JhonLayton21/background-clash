@@ -1,4 +1,5 @@
-import { backgrounds, type Background } from "../data/backgrounds";
+import { backgrounds } from "../data/backgrounds";
+import type { Background } from "../types/background";
 import { BackgroundCard } from "./BackgroundCard";
 
 interface BackgroundGridProps {

@@ -1,4 +1,4 @@
-import type { Background } from "../data/backgrounds";
+import type { Background } from "../types/background";
 import { CopyButton } from "./CopyButton";
 
 interface PreviewAreaProps {
