@@ -1,7 +1,6 @@
 import type { Background, BackgroundControls } from "../types/background";
-import { CopyButton } from "./CopyButton";
 import { ControlsPanel } from "./ControlsPanel";
-import { generateControlledCSS } from "../utils/applyControls";
+import { ExportPanel } from "./ExportPanel";
 
 interface PreviewAreaProps {
     background: Background | null;
@@ -24,11 +23,6 @@ export function PreviewArea({
     onGenerateVariant,
     onRandomize,
 }: PreviewAreaProps) {
-    // Generar CSS actualizado con los controles aplicados
-    const displayedCSS = background 
-        ? generateControlledCSS(background, controls, angle)
-        : "";
-
     // Construir el estilo de preview usando el background real seleccionado
     let backgroundStyle: string | undefined;
     
@@ -63,24 +57,28 @@ export function PreviewArea({
                 className="flex-1 flex items-center justify-center transition-all duration-300 relative"
                 style={previewStyle}
             >
-                {background && (
-                    <div className="absolute bottom-8 transition-opacity duration-300">
-                        <CopyButton text={displayedCSS} />
-                    </div>
-                )}
             </div>
 
             {/* Panel de controles */}
             {background && (
-                <ControlsPanel
-                    controls={controls}
-                    angle={angle}
-                    seed={seed}
-                    onControlsChange={onControlsChange}
-                    onAngleChange={onAngleChange}
-                    onGenerateVariant={onGenerateVariant}
-                    onRandomize={onRandomize}
-                />
+                <>
+                    <ControlsPanel
+                        controls={controls}
+                        angle={angle}
+                        seed={seed}
+                        onControlsChange={onControlsChange}
+                        onAngleChange={onAngleChange}
+                        onGenerateVariant={onGenerateVariant}
+                        onRandomize={onRandomize}
+                    />
+                    
+                    {/* Panel de export */}
+                    <ExportPanel
+                        background={background}
+                        controls={controls}
+                        angle={angle}
+                    />
+                </>
             )}
         </div>
     );
