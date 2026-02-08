@@ -1,10 +1,12 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Header } from './components/Header'
 import { BackgroundGrid } from './components/BackgroundGrid'
 import { PreviewArea } from './components/PreviewArea'
+import { backgrounds } from './data/backgrounds'
 import type { Background, BackgroundControls, BackgroundCategory } from './types/background'
 import { DEFAULT_CONTROLS } from './types/background'
 import { generateVariation, generateRandomSeed, generateNextVariantSeed } from './utils/generateVariations'
+import { parseShareUrl } from './utils/shareUrl'
 
 function App() {
   const [selectedBackground, setSelectedBackground] = useState<Background | null>(null)
@@ -19,6 +21,29 @@ function App() {
 
   // FASE 6: Estado para modal de guardar fondo
   const [showSaveModal, setShowSaveModal] = useState(false)
+
+  // FASE 7: Estado para Dev Mode
+  const [devMode, setDevMode] = useState(false)
+
+  // FASE 7: Cargar estado desde URL al montar el componente
+  useEffect(() => {
+    const shareState = parseShareUrl()
+    
+    if (shareState.bgId) {
+      const bg = backgrounds.find((b) => b.id === shareState.bgId)
+      if (bg) {
+        setSelectedBackground(bg)
+        setAngle(shareState.angle ?? bg.angle ?? 135)
+        setControls({
+          intensity: shareState.intensity ?? DEFAULT_CONTROLS.intensity,
+          saturation: shareState.saturation ?? DEFAULT_CONTROLS.saturation,
+          luminosity: shareState.luminosity ?? DEFAULT_CONTROLS.luminosity,
+          opacity: shareState.opacity ?? DEFAULT_CONTROLS.opacity,
+        })
+        setSeed(bg.seed)
+      }
+    }
+  }, [])
 
   const handleSelectBackground = (background: Background) => {
     setSelectedBackground(background)
@@ -99,6 +124,8 @@ function App() {
             showSaveModal={showSaveModal}
             onSaveModalToggle={setShowSaveModal}
             onLoadSavedBackground={handleLoadSavedBackground}
+            devMode={devMode}
+            onDevModeToggle={setDevMode}
           />
         </section>
       </main>

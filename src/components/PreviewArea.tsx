@@ -3,6 +3,8 @@ import { ControlsPanel } from "./ControlsPanel";
 import { ExportPanel } from "./ExportPanel";
 import { SaveBackgroundModal } from "./SaveBackgroundModal";
 import { SavedBackgroundsList } from "./SavedBackgroundsList";
+import { SharePanel } from "./SharePanel";
+import { DevModePanel } from "./DevModePanel";
 
 interface PreviewAreaProps {
     background: Background | null;
@@ -16,6 +18,8 @@ interface PreviewAreaProps {
     showSaveModal: boolean;
     onSaveModalToggle: (open: boolean) => void;
     onLoadSavedBackground: (background: Background) => void;
+    devMode: boolean;
+    onDevModeToggle: (open: boolean) => void;
 }
 
 export function PreviewArea({ 
@@ -30,6 +34,8 @@ export function PreviewArea({
     showSaveModal,
     onSaveModalToggle,
     onLoadSavedBackground,
+    devMode,
+    onDevModeToggle,
 }: PreviewAreaProps) {
     // Construir el estilo de preview usando el background real seleccionado
     let backgroundStyle: string | undefined;
@@ -97,6 +103,22 @@ export function PreviewArea({
                         background={background}
                         controls={controls}
                         angle={angle}
+                    />
+
+                    {/* Panel de compartir */}
+                    <SharePanel
+                        background={background}
+                        controls={controls}
+                        angle={angle}
+                    />
+
+                    {/* Dev Mode Panel */}
+                    <DevModePanel
+                        background={background}
+                        controls={controls}
+                        angle={angle}
+                        isOpen={devMode}
+                        onToggle={onDevModeToggle}
                     />
 
                     {/* Modal para guardar fondo */}
