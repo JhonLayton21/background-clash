@@ -28,11 +28,11 @@ export function CopyButton({ text }: CopyButtonProps) {
         <button
             onClick={handleCopy}
             className={`
-        flex items-center gap-2 px-4 py-2 rounded-lg backdrop-blur-md transition-all duration-300 shadow-sm
+        flex items-center gap-2 px-4 py-2 rounded-lg backdrop-blur-md transition-all duration-300 shadow-lg
         font-medium text-sm
         ${copied
-                    ? "bg-green-500/90 text-white border-green-400"
-                    : "bg-white/90 text-gray-700 hover:bg-white border-gray-200 hover:scale-105"
+                    ? "bg-green-500/95 text-white border-green-400"
+                    : "bg-white/95 text-gray-900 hover:bg-white/100 border-gray-300 hover:shadow-md hover:scale-105 active:scale-95"
                 }
         border
       `}

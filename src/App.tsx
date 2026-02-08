@@ -17,7 +17,7 @@ function App() {
             selectedBackground={selectedBackground}
           />
         </section>
-        <section className="h-full overflow-hidden bg-gray-50 relative">
+        <section className="h-full overflow-hidden bg-gray-50 relative transition-colors duration-300">
           <PreviewArea background={selectedBackground} />
         </section>
       </main>

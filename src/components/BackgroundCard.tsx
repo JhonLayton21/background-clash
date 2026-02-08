@@ -10,10 +10,10 @@ export function BackgroundCard({ background, onClick, isSelected }: BackgroundCa
     return (
         <button
             className={`
-                group flex flex-col gap-2 rounded-xl p-2 transition-all cursor-pointer text-left w-full border relative outline-none
+                group flex flex-col gap-2 rounded-xl p-2 transition-all duration-200 cursor-pointer text-left w-full border relative outline-none
                 ${isSelected
-                    ? "bg-gray-50 border-blue-500 ring-1 ring-blue-500 shadow-sm"
-                    : "bg-white border-transparent hover:border-gray-200 hover:bg-gray-50 hover:shadow-sm"
+                    ? "bg-blue-50 border-blue-500 ring-1 ring-blue-500 shadow-md"
+                    : "bg-white border-gray-200 hover:border-gray-300 hover:bg-gray-50 hover:shadow-md active:scale-95"
                 }
                 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2
             `}
@@ -23,7 +23,7 @@ export function BackgroundCard({ background, onClick, isSelected }: BackgroundCa
             <div
                 className={`
                     aspect-video w-full rounded-lg shadow-sm transition-all duration-300
-                    ${isSelected ? "ring-2 ring-blue-500/20 shadow-md scale-[1.02]" : "ring-1 ring-black/5 group-hover:shadow-md group-hover:scale-[1.01]"}
+                    ${isSelected ? "ring-2 ring-blue-500/30 shadow-lg scale-[1.02]" : "ring-1 ring-black/5 group-hover:shadow-lg group-hover:scale-[1.01]"}
                 `}
                 style={background.previewStyle}
             />
@@ -32,7 +32,7 @@ export function BackgroundCard({ background, onClick, isSelected }: BackgroundCa
                     {background.name}
                 </span>
                 {isSelected && (
-                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500" />
+                    <div className="w-1.5 h-1.5 rounded-full bg-blue-500 animate-pulse" />
                 )}
             </div>
         </button>
