@@ -17,6 +17,9 @@ function App() {
   const [selectedCategory, setSelectedCategory] = useState<BackgroundCategory | null>(null)
   const [favorites, setFavorites] = useState<Set<string>>(new Set())
 
+  // FASE 6: Estado para modal de guardar fondo
+  const [showSaveModal, setShowSaveModal] = useState(false)
+
   const handleSelectBackground = (background: Background) => {
     setSelectedBackground(background)
     setControls(background.controls)
@@ -59,6 +62,14 @@ function App() {
     })
   }
 
+  // FASE 6: Cargar un fondo guardado
+  const handleLoadSavedBackground = (background: Background) => {
+    setSelectedBackground(background)
+    setControls(background.controls)
+    setAngle(background.angle ?? 135)
+    setSeed(background.seed)
+  }
+
   return (
     <div className="flex flex-col h-screen w-full bg-white text-gray-900">
       <Header />
@@ -85,6 +96,9 @@ function App() {
             onAngleChange={setAngle}
             onGenerateVariant={handleGenerateVariant}
             onRandomize={handleRandomize}
+            showSaveModal={showSaveModal}
+            onSaveModalToggle={setShowSaveModal}
+            onLoadSavedBackground={handleLoadSavedBackground}
           />
         </section>
       </main>
