@@ -57,7 +57,7 @@ export function SavedBackgroundsList({ onSelectBackground }: SavedBackgroundsLis
                     ) : (
                         <div className="divide-y divide-gray-200">
                             {savedBackgrounds.map((bg) => (
-                                <div key={bg.id} className="p-3 hover:bg-gray-50 transition-colors">
+                                <div key={bg.id} className="p-3 hover:bg-gray-50 hover:dark:bg-neutral-950 transition-colors">
                                     <button
                                         onClick={() => handleSelect(bg)}
                                         className="w-full text-left mb-2"
