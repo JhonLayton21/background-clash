@@ -1,5 +1,6 @@
 import type { BackgroundControls } from "../types/background";
 import { CONTROL_RANGES, DEFAULT_CONTROLS } from "../types/background";
+import { Button } from "./ui/button";
 
 interface ControlsPanelProps {
   controls: BackgroundControls;
@@ -41,20 +42,20 @@ export function ControlsPanel({
     <div className="border-t border-gray-200 p-4 bg-white">
       {/* Botones de variación (FASE 3) */}
       <div className="flex gap-2 mb-3">
-        <button
+        <Button
           onClick={onGenerateVariant}
           className="flex-1 text-xs px-3 py-2 rounded bg-blue-500 hover:bg-blue-600 text-white transition-colors font-medium"
           title="Genera una variación controlada del background"
         >
           Generate
-        </button>
-        <button
+        </Button>
+        <Button
           onClick={onRandomize}
           className="flex-1 text-xs px-3 py-2 rounded bg-purple-500 hover:bg-purple-600 text-white transition-colors font-medium"
           title="Genera una variación completamente aleatoria"
         >
           Randomize
-        </button>
+        </Button>
       </div>
 
       {/* Título de controles */}
