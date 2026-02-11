@@ -2,6 +2,8 @@ import { useState } from "react";
 import type { Background, BackgroundControls } from "../types/background";
 import { generateControlledCSS } from "../utils/applyControls";
 import { generateCSSVariable } from "../utils/generateExport";
+import { Button } from "./ui/button";
+import { Settings, Copy, Check } from "lucide-react";
 
 interface DevModePanelProps {
   background: Background;
@@ -28,13 +30,13 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
   if (!isOpen) {
     return (
       <div className="border-t border-gray-200 p-4 bg-white">
-        <button
+        <Button
           onClick={() => onToggle(true)}
           className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95"
         >
-          <span>⚙️</span>
+          <span><Settings/></span>
           <span>Dev Mode</span>
-        </button>
+        </Button>
       </div>
     );
   }
@@ -43,13 +45,13 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
     <div className="border-t border-gray-200 bg-gray-50 flex flex-col">
       {/* Header */}
       <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-white">
-        <button
+        <Button
           onClick={() => onToggle(false)}
           className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95"
         >
-          <span>⚙️</span>
+          <span><Settings/></span>
           <span>Dev Mode</span>
-        </button>
+        </Button>
         <div className="flex gap-2 items-center">
           <label className="flex items-center gap-2 text-xs font-medium text-gray-700 cursor-pointer">
             <input
@@ -72,7 +74,7 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
 
       {/* Copy button */}
       <div className="p-4 border-t border-gray-200 bg-white">
-        <button
+        <Button
           onClick={handleCopy}
           className={`w-full flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
             copied
@@ -80,9 +82,9 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
               : "bg-blue-500 text-white border border-blue-600 hover:bg-blue-600 active:scale-95"
           }`}
         >
-          <span>{copied ? "✓" : "📋"}</span>
+          <span>{copied ? <Check/> : <Copy/>}</span>
           <span>{copied ? "Copiado" : "Copiar CSS Completo"}</span>
-        </button>
+        </Button>
       </div>
     </div>
   );
