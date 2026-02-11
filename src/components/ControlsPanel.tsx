@@ -61,13 +61,13 @@ export function ControlsPanel({
       {/* Título de controles */}
       <div className="flex items-center justify-between mb-3">
         <h3 className="text-sm font-semibold text-gray-900">Controles</h3>
-        <button
+        <Button
           onClick={handleReset}
-          className="text-xs px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors"
+          className="text-xs px-2 py-1 rounded bg-gray-100 hover:bg-gray-200 text-gray-700 transition-colors dark:bg-neutral-800 dark:text-gray-300 dark:hover:bg-neutral-700"
           title="Restaurar valores por defecto"
         >
           Reset
-        </button>
+        </Button>
       </div>
 
       {/* Seed info (FASE 3) */}
