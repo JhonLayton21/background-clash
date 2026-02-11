@@ -78,94 +78,107 @@ export function ControlsPanel({
       </div>
 
       <div className="space-y-3">
-        {/* Angle */}
-        <div>
-          <label className="text-xs font-medium text-gray-700 block mb-1">
-            Ángulo: <span className="text-blue-600">{angle}°</span>
-          </label>
-          <input
-            type="range"
-            min="0"
-            max="360"
-            step="15"
-            value={angle}
-            onChange={handleAngleChange}
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
+  {/* Angle */}
+  <div>
+    <label className="text-xs font-medium text-gray-700 dark:text-gray-300 block mb-1">
+      Ángulo: <span className="text-blue-600 dark:text-blue-400">{angle}°</span>
+    </label>
+    <input
+      type="range"
+      min="0"
+      max="360"
+      step="15"
+      value={angle}
+      onChange={handleAngleChange}
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer
+                 bg-gray-200 dark:bg-neutral-800
+                 accent-blue-500 dark:accent-blue-400"
+    />
+  </div>
 
-        {/* Intensity */}
-        <div>
-          <label className="text-xs font-medium text-gray-700 block mb-1">
-            Intensidad: <span className="text-blue-600">{controls.intensity.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min={CONTROL_RANGES.intensity.min}
-            max={CONTROL_RANGES.intensity.max}
-            step="0.1"
-            value={controls.intensity}
-            onChange={(e) =>
-              handleControl("intensity", parseFloat(e.target.value))
-            }
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
+  {/* Intensity */}
+  <div>
+    <label className="text-xs font-medium text-gray-700 dark:text-gray-300 block mb-1">
+      Intensidad: <span className="text-blue-600 dark:text-blue-400">{controls.intensity.toFixed(1)}</span>
+    </label>
+    <input
+      type="range"
+      min={CONTROL_RANGES.intensity.min}
+      max={CONTROL_RANGES.intensity.max}
+      step="0.1"
+      value={controls.intensity}
+      onChange={(e) =>
+        handleControl("intensity", parseFloat(e.target.value))
+      }
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer
+                 bg-gray-200 dark:bg-neutral-800
+                 accent-blue-500 dark:accent-blue-400"
+    />
+  </div>
 
-        {/* Saturation */}
-        <div>
-          <label className="text-xs font-medium text-gray-700 block mb-1">
-            Saturación: <span className="text-blue-600">{controls.saturation.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min={CONTROL_RANGES.saturation.min}
-            max={CONTROL_RANGES.saturation.max}
-            step="0.1"
-            value={controls.saturation}
-            onChange={(e) =>
-              handleControl("saturation", parseFloat(e.target.value))
-            }
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
+  {/* Saturation */}
+  <div>
+    <label className="text-xs font-medium text-gray-700 dark:text-gray-300 block mb-1">
+      Saturación: <span className="text-blue-600 dark:text-blue-400">{controls.saturation.toFixed(1)}</span>
+    </label>
+    <input
+      type="range"
+      min={CONTROL_RANGES.saturation.min}
+      max={CONTROL_RANGES.saturation.max}
+      step="0.1"
+      value={controls.saturation}
+      onChange={(e) =>
+        handleControl("saturation", parseFloat(e.target.value))
+      }
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer
+                 bg-gray-200 dark:bg-neutral-800
+                 accent-blue-500 dark:accent-blue-400"
+    />
+  </div>
 
-        {/* Luminosity */}
-        <div>
-          <label className="text-xs font-medium text-gray-700 block mb-1">
-            Luminosidad: <span className="text-blue-600">{controls.luminosity.toFixed(1)}</span>
-          </label>
-          <input
-            type="range"
-            min={CONTROL_RANGES.luminosity.min}
-            max={CONTROL_RANGES.luminosity.max}
-            step="0.1"
-            value={controls.luminosity}
-            onChange={(e) =>
-              handleControl("luminosity", parseFloat(e.target.value))
-            }
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
+  {/* Luminosity */}
+  <div>
+    <label className="text-xs font-medium text-gray-700 dark:text-gray-300 block mb-1">
+      Luminosidad: <span className="text-blue-600 dark:text-blue-400">{controls.luminosity.toFixed(1)}</span>
+    </label>
+    <input
+      type="range"
+      min={CONTROL_RANGES.luminosity.min}
+      max={CONTROL_RANGES.luminosity.max}
+      step="0.1"
+      value={controls.luminosity}
+      onChange={(e) =>
+        handleControl("luminosity", parseFloat(e.target.value))
+      }
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer
+                 bg-gray-200 dark:bg-neutral-800
+                 accent-blue-500 dark:accent-blue-400"
+    />
+  </div>
 
-        {/* Opacity */}
-        <div>
-          <label className="text-xs font-medium text-gray-700 block mb-1">
-            Opacidad: <span className="text-blue-600">{(controls.opacity * 100).toFixed(0)}%</span>
-          </label>
-          <input
-            type="range"
-            min={CONTROL_RANGES.opacity.min}
-            max={CONTROL_RANGES.opacity.max}
-            step="0.05"
-            value={controls.opacity}
-            onChange={(e) =>
-              handleControl("opacity", parseFloat(e.target.value))
-            }
-            className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
-          />
-        </div>
-      </div>
+  {/* Opacity */}
+  <div>
+    <label className="text-xs font-medium text-gray-700 dark:text-gray-300 block mb-1">
+      Opacidad: <span className="text-blue-600 dark:text-blue-400">
+        {(controls.opacity * 100).toFixed(0)}%
+      </span>
+    </label>
+    <input
+      type="range"
+      min={CONTROL_RANGES.opacity.min}
+      max={CONTROL_RANGES.opacity.max}
+      step="0.05"
+      value={controls.opacity}
+      onChange={(e) =>
+        handleControl("opacity", parseFloat(e.target.value))
+      }
+      className="w-full h-2 rounded-lg appearance-none cursor-pointer
+                 bg-gray-200 dark:bg-neutral-800
+                 accent-blue-500 dark:accent-blue-400"
+    />
+  </div>
+</div>
+
     </div>
   );
 }
