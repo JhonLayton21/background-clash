@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import type { SavedBackground } from "../types/background";
 import { getSavedBackgrounds, deleteBackground } from "../utils/localStorage";
+import { Button } from "./ui/button";
+import { SaveAll } from "lucide-react";
 
 interface SavedBackgroundsListProps {
     onSelectBackground: (background: SavedBackground) => void;
@@ -28,7 +30,7 @@ export function SavedBackgroundsList({ onSelectBackground }: SavedBackgroundsLis
 
     return (
         <div className="relative">
-            <button
+            <Button
                 onClick={() => setIsOpen(!isOpen)}
                 className={`flex items-center justify-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                     savedBackgrounds.length > 0
@@ -37,9 +39,9 @@ export function SavedBackgroundsList({ onSelectBackground }: SavedBackgroundsLis
                 }`}
                 title="Fondos guardados"
             >
-                <span>💾</span>
+                <span><SaveAll className="h-4 w-4"/></span>
                 <span>{savedBackgrounds.length}</span>
-            </button>
+            </Button>
 
             {isOpen && (
                 <div className="absolute top-full right-0 mt-2 w-80 bg-white rounded-xl shadow-xl border border-gray-200 z-40 max-h-96 overflow-y-auto">
