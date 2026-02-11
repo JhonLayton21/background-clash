@@ -1,6 +1,8 @@
 import { useState } from "react";
 import type { Background, BackgroundControls } from "../types/background";
 import { generateShareUrl, copyShareUrlToClipboard } from "../utils/shareUrl";
+import { Button } from "./ui/button";
+import { Link, Check } from "lucide-react";
 
 interface SharePanelProps {
   background: Background;
@@ -25,7 +27,7 @@ export function SharePanel({ background, controls, angle }: SharePanelProps) {
     <div className="border-t border-gray-200 p-4 bg-white">
       <div className="flex gap-2 items-center">
         <span className="text-xs font-medium text-gray-700">Compartir:</span>
-        <button
+        <Button
           onClick={handleShare}
           className={`flex items-center gap-2 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
             copied
@@ -33,9 +35,9 @@ export function SharePanel({ background, controls, angle }: SharePanelProps) {
               : "bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200 active:scale-95"
           }`}
         >
-          <span>{copied ? "✓" : "🔗"}</span>
+          <span>{copied ? <Check/> : <Link/>}</span>
           <span>{copied ? "Copiado" : "Copiar Link"}</span>
-        </button>
+        </Button>
       </div>
     </div>
   );
