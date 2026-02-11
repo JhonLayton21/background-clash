@@ -32,7 +32,7 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
       <div className="border-t border-gray-200 p-4 bg-white">
         <Button
           onClick={() => onToggle(true)}
-          className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95"
+          className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95 dark:bg-neutral-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-neutral-700"
         >
           <span><Settings/></span>
           <span>Dev Mode</span>
@@ -47,7 +47,7 @@ export function DevModePanel({ background, controls, angle, isOpen, onToggle }: 
       <div className="p-4 border-b border-gray-200 flex items-center justify-between bg-white">
         <Button
           onClick={() => onToggle(false)}
-          className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95"
+          className="flex items-center gap-2 px-3 py-2 text-sm font-medium bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-all active:scale-95 dark:bg-neutral-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-neutral-700"
         >
           <span><Settings/></span>
           <span>Dev Mode</span>
