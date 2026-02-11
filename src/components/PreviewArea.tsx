@@ -5,6 +5,8 @@ import { SaveBackgroundModal } from "./SaveBackgroundModal";
 import { SavedBackgroundsList } from "./SavedBackgroundsList";
 import { SharePanel } from "./SharePanel";
 import { DevModePanel } from "./DevModePanel";
+import { Button } from "./ui/button";
+import { Save } from "lucide-react";
 
 interface PreviewAreaProps {
     background: Background | null;
@@ -78,13 +80,13 @@ export function PreviewArea({
                 <>
                     {/* Barra de acciones - Guardar y Fondos guardados */}
                     <div className="border-b border-gray-200 p-4 bg-white flex items-center justify-between">
-                        <button
+                        <Button
                             onClick={() => onSaveModalToggle(true)}
                             className="flex items-center justify-center gap-2 px-3 py-2 bg-blue-500 text-white text-sm font-medium rounded-lg hover:bg-blue-600 transition-all active:scale-95"
                         >
-                            <span>💾</span>
+                            <span><Save className="h-4 w-4"/></span>
                             <span>Guardar</span>
-                        </button>
+                        </Button>
                         <SavedBackgroundsList onSelectBackground={onLoadSavedBackground} />
                     </div>
 
