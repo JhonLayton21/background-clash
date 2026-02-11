@@ -65,7 +65,7 @@ export function ExportPanel({ background, controls, angle }: ExportPanelProps) {
                     `
                     : `
                       bg-gray-100 text-gray-700 border border-gray-200 hover:bg-gray-200
-                      dark:bg-neutral-800 dark:text-gray-300 dark:border-gray-700 dark:hover:bg-neutral-700
+                      dark:bg-neutral-800 dark:text-gray-300 dark:border-0 dark:hover:bg-neutral-700
                     `
                 }
               `}
