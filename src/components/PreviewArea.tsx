@@ -77,9 +77,9 @@ export function PreviewArea({
 
   return (
     <div className="h-full w-full flex flex-col bg-white border-l border-gray-200 min-h-0">
-      {/* Área de preview */}
+      {/* Área de preview — siempre visible */}
       <div
-        className="flex-1 flex items-center justify-center transition-all duration-300 relative"
+        className="flex items-center justify-center relative transition-all duration-300 shrink-0 min-h-45 sm:min-h-55 md:min-h-65 lg:min-h-80 flex-1"
         style={previewStyle}
       />
 
