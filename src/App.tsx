@@ -111,7 +111,7 @@ function App() {
             onToggleFavorite={handleToggleFavorite}
           />
         </section>
-        <section className="h-full overflow-hidden bg-gray-50 relative transition-colors duration-300">
+        <section className="h-full overflow-y-auto bg-gray-50 relative transition-colors duration-300">
           <PreviewArea 
             background={selectedBackground}
             controls={controls}
