@@ -1,10 +1,43 @@
 import { motion } from "framer-motion";
-import { Github, Linkedin } from "lucide-react";
+import { Github, Linkedin, Heart } from "lucide-react";
 
 export function Header() {
   return (
     <header className="relative flex h-20 items-center justify-center border-b border-gray-200 px-6 bg-white shrink-0">
       
+      {/* Texto izquierda */}
+      <div
+        className="
+          absolute
+          top-3 left-3                /* 📱 móviles */
+          flex items-center gap-1
+          text-xs sm:text-sm
+          text-gray-600
+
+          md:left-6
+          md:top-1/2 md:-translate-y-1/2  /* 💻 desktop centrado */
+        "
+      >
+        <span>Hecho con</span>
+
+        <Heart className="w-4 h-4 text-pink-500 fill-pink-500" />
+        <span>por</span>
+        <a
+          href="https://github.com/JhonLayton21"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            font-medium
+            text-purple-500
+            hover:text-purple-600
+            transition
+            hover:underline
+          "
+        >
+          Jhon Brandon Layton Rodriguez
+        </a>
+      </div>
+
       {/* Título centrado */}
       <div className="flex items-center gap-2">
         <motion.h1
@@ -33,11 +66,11 @@ export function Header() {
       <div
         className="
           absolute
-          top-3 right-3              /* 📱 móviles */
+          top-3 right-3
           flex items-center gap-2
 
           md:right-6
-          md:top-1/2 md:-translate-y-1/2  /* 💻 desktop centrado */
+          md:top-1/2 md:-translate-y-1/2
           md:gap-4
         "
       >
