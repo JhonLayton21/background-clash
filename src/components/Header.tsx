@@ -10,7 +10,8 @@ export function Header() {
         <motion.h1
           className="
             font-title
-            text-3xl md:text-6xl font-extrabold tracking-tight
+            text-2xl sm:text-3xl md:text-6xl
+            font-extrabold tracking-tight
             bg-gradient-to-r from-pink-400 via-purple-400 to-cyan-400
             bg-[length:300%_300%]
             bg-clip-text text-transparent
@@ -29,7 +30,17 @@ export function Header() {
       </div>
 
       {/* Iconos derecha */}
-      <div className="absolute right-6 top-1/2 -translate-y-1/2 flex items-center gap-4">
+      <div
+        className="
+          absolute
+          top-3 right-3              /* 📱 móviles */
+          flex items-center gap-2
+
+          md:right-6
+          md:top-1/2 md:-translate-y-1/2  /* 💻 desktop centrado */
+          md:gap-4
+        "
+      >
         <a
           href="https://github.com/JhonLayton21/background-clash"
           target="_blank"
@@ -43,7 +54,7 @@ export function Header() {
             active:scale-95
           "
         >
-          <Github size={24} />
+          <Github className="w-5 h-5 md:w-6 md:h-6" />
         </a>
 
         <a
@@ -59,7 +70,7 @@ export function Header() {
             active:scale-95
           "
         >
-          <Linkedin size={24} />
+          <Linkedin className="w-5 h-5 md:w-6 md:h-6" />
         </a>
       </div>
     </header>
